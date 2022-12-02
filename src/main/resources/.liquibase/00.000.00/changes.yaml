@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.0
+      author: ShilovI
+      comment: 'The changeset is required for rollback only'
+      changes:
+        - tagDatabase:
+            tag: release/0.0.0
