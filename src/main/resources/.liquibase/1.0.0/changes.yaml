@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.0
+      author: ShilovI
+      comment: 'Database Initial'
+      changes:
+        - tagDatabase:
+            tag: release/1.0.0
+
+  # DDL
+
+  - include:
+      file: ddl/drones.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: ddl/medication.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: ddl/orders.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: ddl/orders_medication.sql
+      relativeToChangelogFile: true
+
+
