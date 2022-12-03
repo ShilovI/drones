@@ -40,3 +40,8 @@ spring:
     default-schema: ${spring.jpa.properties.hibernate.default_schema}
 server:
   port: 8092
+application:
+  rest:
+    controller:
+      drones: enabled
+      medication: enabled
