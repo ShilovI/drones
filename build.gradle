@@ -13,6 +13,15 @@ repositories {
     mavenLocal()
 }
 
+jar {
+    enabled = false
+}
+
+bootJar {
+    archiveFileName = "drones.jar"
+}
+
+
 ext {
     set('testcontainersVersion', '1.17.6')
 }
