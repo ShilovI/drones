@@ -1,1 +1,1 @@
-truncate table drones.drones, drones.medication, drones.orders, drones.orders_medication cascade;
+truncate table drones.drones, drones.medication, drones.orders, drones.order_medication cascade;

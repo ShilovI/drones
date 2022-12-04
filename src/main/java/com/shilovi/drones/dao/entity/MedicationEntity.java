@@ -13,10 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(
         name = "medication",
-        indexes = {
-                @Index(name = "medication_id_uindex", columnList = "code", unique = true),
-                @Index(name = "medication_id_uindex", columnList = "code", unique = true)
-        }
+        indexes = @Index(name = "medication_id_uindex", columnList = "code", unique = true)
 )
 public class MedicationEntity {
 

@@ -11,7 +11,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         temp.use_jdbc_metadata_defaults: false
         default_schema: drones
-        generate_statistics: true
+        generate_statistics: false
         order_inserts: true
         jdbc:
           batch_size: 50

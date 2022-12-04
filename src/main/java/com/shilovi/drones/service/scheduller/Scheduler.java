@@ -24,7 +24,8 @@ public class Scheduler {
 
     @Scheduled(cron = "${application.scheduler.battery-capacities.cron}")
     public void process() {
-        service.findAll()
+        //it can also be stored in database
+        service.findAllSerialNumbers()
                 .forEach(serialNumber -> logger.info("Battery capacity for drone {} is {}", serialNumber,
                         client.getBatteryCapacity(serialNumber)));
     }

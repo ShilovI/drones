@@ -12,5 +12,5 @@ public interface DronesAccessService {
 
     boolean doesDroneExists(String serialNumber);
 
-    Collection<String> findAll();
+    Collection<String> findAllSerialNumbers();
 }

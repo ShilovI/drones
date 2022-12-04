@@ -16,16 +16,10 @@ create table drones.medication
 );
 
 comment on table drones.medication is 'The table stores medication';
-comment on column drones.medication.id is 'Primary key';
 comment on column drones.medication.weight is 'Weight';
-comment on column drones.medication.code is 'Code';
+comment on column drones.medication.code is 'Code, primary key';
 comment on column drones.medication.image is 'Picture of a case';
 comment on column drones.medication.active is 'A soft deleted flag: true - active, false - deleted';
-
-
-
-create unique index medication_id_uindex
-    on drones.medication (code);
 
 create unique index medication_code_uindex
     on drones.medication (code);

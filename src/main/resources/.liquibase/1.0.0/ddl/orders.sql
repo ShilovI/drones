@@ -13,9 +13,9 @@ create sequence drones.orders_seq;
 create table drones.orders
 (
     id         bigint default nextval('drones.orders_seq'::regclass)                    not null,
-    drone_id bigint
-        constraint orders_drone_id_fk
-            references drones.drones (id)                                                       ,
+    drone_serial_number varchar(100)
+        constraint orders_drone_serial_number_fk
+            references drones.drones (serial_number)                                                       ,
     status                   varchar(50)                                check (status = 'CREATING' or
                                                                               status = 'CREATED' or
                                                                               status = 'DELIVERING' or
@@ -25,11 +25,11 @@ create table drones.orders
 );
 
 comment on table drones.orders is 'The table stores orders';
-comment on column drones.orders.drone_id is 'Id of drone which is carrying out order';
+comment on column drones.orders.drone_serial_number is 'Id of drone which is carrying out order';
 comment on column drones.orders.status is 'Order status';
 
 create unique index orders_id_uindex
     on drones.orders (id);
 
-create unique index orders_drone_id_index
-    on drones.orders (drone_id);
+create index orders_drone_serial_number_index
+    on drones.orders (drone_serial_number);

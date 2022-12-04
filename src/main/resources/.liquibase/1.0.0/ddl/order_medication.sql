@@ -16,14 +16,14 @@ create table drones.order_medication
     order_id bigint                                                              not null
         constraint order_medication_order_id_fk
             references drones.orders (id)                                        not null,
-    medication_id bigint                                                         not null
-        constraint order_medication_medication_id_fk
-            references drones.medication (id)                                    not null
+    medication_code varchar(128)                                                 not null
+        constraint order_medication_medication_code_fk
+            references drones.medication (code)                                  not null
 );
 
 comment on table drones.order_medication is 'The table stores relations between orders and medication';
 comment on column drones.order_medication.order_id is 'Foreign key to orders table';
-comment on column drones.order_medication.medication_id is 'Foreign key to medication table';
+comment on column drones.order_medication.medication_code is 'Foreign key to medication table';
 
 create unique index order_medication_uindex
-    on drones.order_medication (order_id, medication_id);
+    on drones.order_medication (order_id, medication_code);

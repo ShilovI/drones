@@ -44,7 +44,7 @@ public class DronesAccessServiceImpl implements DronesAccessService {
     }
 
     @Override
-    public Collection<String> findAll() {
+    public Collection<String> findAllSerialNumbers() {
         return repository.findAllSerialNumbers();
     }
 

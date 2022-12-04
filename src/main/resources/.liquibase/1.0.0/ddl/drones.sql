@@ -26,15 +26,14 @@ create table drones.drones
 );
 
 comment on table drones.drones is 'The table stores meta information about drones';
-comment on column drones.drones.id is 'Primary key';
-comment on column drones.drones.serial_number is 'Serial number of a drone';
+comment on column drones.drones.serial_number is 'Serial number of a drone, primary key';
 comment on column drones.drones.weight_limit is 'Weight limit - ni more than 500 gramm';
 comment on column drones.drones.model is 'Model - one of "Lightweight", "Middleweight", "Cruiserweight", "Heavyweight"';
 comment on column drones.drones.state is 'State';
 comment on column drones.drones.active is 'A soft deleted flag: true - active, false - deleted';
 
-create unique index drone_id_uindex
+create unique index drone_serial_number_uindex
     on drones.drones (serial_number);
 
-create unique index drone_state_index
+create index drone_state_index
     on drones.drones (state);

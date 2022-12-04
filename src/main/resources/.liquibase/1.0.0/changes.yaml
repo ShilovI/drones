@@ -22,7 +22,7 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
-      file: ddl/orders_medication.sql
+      file: ddl/order_medication.sql
       relativeToChangelogFile: true
 
 

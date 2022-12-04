@@ -18,7 +18,7 @@ import java.util.Set;
         name = "orders",
         indexes = {
                 @Index(name = "orders_id_uindex", columnList = "id", unique = true),
-                @Index(name = "orders_drone_id_index", columnList = "drone_id", unique = true)
+                @Index(name = "orders_drone_drone_serial_number_index", columnList = "drone_serial_number", unique = true)
         }
 )
 public class OrderEntity {
@@ -31,7 +31,7 @@ public class OrderEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "drone_id")
+    @JoinColumn(name = "drone_serial_number")
     @ToString.Include
     private DroneEntity drone;
 
@@ -47,8 +47,8 @@ public class OrderEntity {
     @JoinTable(
             name = "order_medication",
             joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "medication_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"order_id", "medication_id"}))
+            inverseJoinColumns = @JoinColumn(name = "medication_code"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"order_id", "medication_code"}))
     @Builder.Default
     @ToString.Exclude
     private Set<MedicationEntity> medicationEntities = new HashSet<>();

@@ -17,7 +17,7 @@ import java.util.List;
 @Table(
         name = "drones",
         indexes = {
-                @Index(name = "drone_id_uindex", columnList = "serial_number", unique = true),
+                @Index(name = "drone_serial_number_uindex", columnList = "serial_number", unique = true),
                 @Index(name = "drone_state_index", columnList = "state")
         }
 )
