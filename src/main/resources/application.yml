@@ -45,3 +45,7 @@ application:
     controller:
       drones: enabled
       medication: enabled
+      order: enabled
+  scheduler:
+    battery-capacities:
+      cron: "-"

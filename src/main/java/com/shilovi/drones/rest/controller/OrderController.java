@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/medication")
-@ConditionalOnProperty(prefix = "application.rest.controller", name = "medication", havingValue = "enabled", matchIfMissing = true)
-public class MedicationController {
+@RequestMapping("/order")
+@ConditionalOnProperty(prefix = "application.rest.controller", name = "order", havingValue = "enabled", matchIfMissing = true)
+public class OrderController {
 }
