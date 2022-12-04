@@ -3,9 +3,7 @@ package com.shilovi.drones.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shilovi.drones.utilities.JsonHelper;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,22 +14,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DroneDto {
+public class MedicationDto {
 
-    @NotEmpty
-    @Size(max = 100)
-    @JsonProperty("serialNumber")
-    private String serialNumber;
+    @JsonProperty("code")
+    @Pattern(regexp = "[A-Za-z0-9,_]+")
+    private String code;
 
-    @JsonProperty("weightLimit")
-    @Max(500)
-    private Long weightLimit;
+    @JsonProperty("name")
+    @Pattern(regexp = "[A-Z0-9_]+")
+    private String name;
 
-    @JsonProperty("model")
-    private String model;
-
-    @JsonProperty("state")
-    private String state;
+    @JsonProperty("weight")
+    private Long weight;
 
     @Override
     public String toString() {

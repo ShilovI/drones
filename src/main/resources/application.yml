@@ -41,6 +41,9 @@ spring:
 server:
   port: 8092
 application:
+  drone:
+    min-battery-level-for-delivering: 25
+    maximum-carry-weight: 500
   rest:
     controller:
       drones: enabled

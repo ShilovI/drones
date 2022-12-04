@@ -1,4 +1,4 @@
-package com.shilovi.drones.utils;
+package com.shilovi.drones.utilities;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

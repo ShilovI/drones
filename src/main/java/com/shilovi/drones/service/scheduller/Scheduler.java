@@ -26,8 +26,8 @@ public class Scheduler {
     public void process() {
         //it can also be stored in database
         service.findAllSerialNumbers()
-                .forEach(serialNumber -> logger.info("Battery capacity for drone {} is {}", serialNumber,
-                        client.getBatteryCapacity(serialNumber)));
+                .forEach(serialNumber -> logger.info("Battery level for drone {} is {}", serialNumber,
+                        client.getBatteryLevel(serialNumber)));
     }
 
 }

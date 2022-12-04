@@ -1,5 +1,6 @@
 package com.shilovi.drones.service.drones.impl;
 
+import com.shilovi.drones.config.properties.DroneProperties;
 import com.shilovi.drones.dao.access.DronesAccessService;
 import com.shilovi.drones.exception.DroneUnavailableException;
 import com.shilovi.drones.exception.NotFoundException;
@@ -30,6 +31,8 @@ class DronesServiceImplTest {
     private DronesAccessService accessService;
     @Mock
     private DronesClient client;
+    @Mock
+    private DroneProperties properties;
 
     private DroneDto dto;
     private String droneSerialNumber;
@@ -52,9 +55,9 @@ class DronesServiceImplTest {
         when(accessService.doesDroneExists(brokenDroneSerialNumber)).thenReturn(true);
         when(accessService.doesDroneExists(notExistentDroneSerialNumber)).thenReturn(false);
         batteryLevel = new Random().nextInt(101);
-        when(client.getBatteryCapacity(droneSerialNumber)).thenReturn(batteryLevel);
-        when(client.getBatteryCapacity(brokenDroneSerialNumber)).thenThrow(new RuntimeException("Request timeout!"));
-        service = new DronesServiceImpl(accessService, client);
+        when(client.getBatteryLevel(droneSerialNumber)).thenReturn(batteryLevel);
+        when(client.getBatteryLevel(brokenDroneSerialNumber)).thenThrow(new RuntimeException("Request timeout!"));
+        service = new DronesServiceImpl(accessService, client, properties);
     }
 
     @AfterEach
@@ -74,7 +77,7 @@ class DronesServiceImplTest {
         BatteryLevelDto dto = service.checkBatteryLevel(droneSerialNumber);
         assertAll(() -> assertEquals(batteryLevel, dto.getBatteryLevel()),
                 () -> assertEquals(droneSerialNumber, dto.getSerialNumber()));
-        verify(client, only()).getBatteryCapacity(droneSerialNumber);
+        verify(client, only()).getBatteryLevel(droneSerialNumber);
     }
 
     @Test

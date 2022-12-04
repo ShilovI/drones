@@ -1,10 +1,8 @@
 package com.shilovi.drones.rest.controller;
 
 import com.shilovi.drones.model.DroneDto;
-import com.shilovi.drones.model.ErrorResponse;
-import com.shilovi.drones.model.base.DroneModel;
 import com.shilovi.drones.service.drones.DronesService;
-import com.shilovi.drones.utils.JsonHelper;
+import com.shilovi.drones.utilities.JsonHelper;
 import com.shilovi.drones.utils.tag.SpringIntegrationTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,13 +12,10 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

@@ -2,25 +2,22 @@ package com.shilovi.drones.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.shilovi.drones.utilities.JsonHelper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Collection;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ErrorResponse {
+public class DroneCollectionDto {
 
-    @JsonProperty("error")
-    private String error;
+    @JsonProperty("drones")
+    private Collection<DroneDto> drones;
 
-    @Override
-    public String toString() {
-        return JsonHelper.getStringFromObject(this);
-    }
 
 }

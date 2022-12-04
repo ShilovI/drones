@@ -2,6 +2,6 @@ package com.shilovi.drones.service.drones;
 
 public interface DronesClient {
 
-    Integer getBatteryCapacity(String serialNumber);
+    Integer getBatteryLevel(String serialNumber);
 
 }

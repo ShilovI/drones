@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,6 +22,7 @@ import java.util.List;
                 @Index(name = "drone_state_index", columnList = "state")
         }
 )
+//TODO add battery capacity
 public class DroneEntity {
 
     @Id
@@ -45,7 +47,7 @@ public class DroneEntity {
             mappedBy = "drone",
             orphanRemoval = true
     )
-    private List<OrderEntity> orders;
+    private List<OrderEntity> orders = new ArrayList<>();
 
     @Column(name = "created", updatable = false)
     private LocalDateTime created;

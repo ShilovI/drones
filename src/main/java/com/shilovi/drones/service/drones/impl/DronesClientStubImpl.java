@@ -8,10 +8,10 @@ import java.util.Random;
 @Service
 public class DronesClientStubImpl implements DronesClient {
 
-    /*It is not convenient to store the capacity in the database, because this characteristic is constantly changing.
+    /*It is not convenient to store the level in the database, because this characteristic is constantly changing.
     Inside this method, there should be a connection with the drone by its serial number.*/
     @Override
-    public Integer getBatteryCapacity(String serialNumber) {
+    public Integer getBatteryLevel(String serialNumber) {
         return new Random().nextInt(101);
     }
 

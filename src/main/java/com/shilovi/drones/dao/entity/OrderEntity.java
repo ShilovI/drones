@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -51,7 +51,7 @@ public class OrderEntity {
             uniqueConstraints = @UniqueConstraint(columnNames = {"order_id", "medication_code"}))
     @Builder.Default
     @ToString.Exclude
-    private Set<MedicationEntity> medicationEntities = new HashSet<>();
+    private List<MedicationEntity> medicationEntities = new ArrayList<>();
 
     @Column(name = "created", updatable = false)
     private LocalDateTime created;

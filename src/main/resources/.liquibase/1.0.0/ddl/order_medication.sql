@@ -25,5 +25,5 @@ comment on table drones.order_medication is 'The table stores relations between 
 comment on column drones.order_medication.order_id is 'Foreign key to orders table';
 comment on column drones.order_medication.medication_code is 'Foreign key to medication table';
 
-create unique index order_medication_uindex
+create index order_medication_index
     on drones.order_medication (order_id, medication_code);

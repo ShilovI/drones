@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.EnumSet;
-import java.util.Locale;
 import java.util.Objects;
 
 @Getter
