@@ -4,5 +4,6 @@ import com.shilovi.drones.service.drones.DronesService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DronesServiceImpl implements DronesService {
+public class DronesServiceMockImpl implements DronesService {
+
 }
