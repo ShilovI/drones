@@ -47,6 +47,7 @@ public class DroneEntity {
             mappedBy = "drone",
             orphanRemoval = true
     )
+    @Builder.Default
     private List<OrderEntity> orders = new ArrayList<>();
 
     @Column(name = "created", updatable = false)

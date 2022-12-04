@@ -21,9 +21,9 @@ spring:
       repositories:
         bootstrap-mode: default
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    url:  jdbc:postgresql://localhost:5444/shilov
+    username: shilov
+    password: shilov
     driver-class-name: org.postgresql.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
