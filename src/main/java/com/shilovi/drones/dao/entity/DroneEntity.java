@@ -17,18 +17,13 @@ import java.util.List;
 @Table(
         name = "drones",
         indexes = {
-                @Index(name = "drone_id_uindex", columnList = "id", unique = true),
+                @Index(name = "drone_id_uindex", columnList = "serial_number", unique = true),
                 @Index(name = "drone_state_index", columnList = "state")
         }
 )
 public class DroneEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dronesSeqGenerator")
-    @SequenceGenerator(name = "dronesSeqGenerator", sequenceName = "drones_seq", allocationSize = 1)
-    @ToString.Include
-    private Long id;
-
     @Column(name = "serial_number")
     @EqualsAndHashCode.Include
     @ToString.Include

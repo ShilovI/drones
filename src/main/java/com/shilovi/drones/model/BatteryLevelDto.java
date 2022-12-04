@@ -17,21 +17,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DroneDto {
+public class BatteryLevelDto {
 
     @NotEmpty
     @Size(max = 100)
     @JsonProperty("serialNumber")
     private String serialNumber;
 
-    @JsonProperty("weightLimit")
-    @Max(500)
-    private Long weightLimit;
-
-    @JsonProperty("model")
-    private String model;
-
-    @JsonProperty("state")
-    private String state;
+    @JsonProperty("batteryLevel")
+    private Integer batteryLevel;
 
 }

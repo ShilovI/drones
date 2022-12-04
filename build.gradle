@@ -49,6 +49,7 @@ dependencies {
     testRuntimeOnly 'org.postgresql:postgresql:42.3.1'
 
     annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     liquibaseRuntime 'org.liquibase:liquibase-core'
     liquibaseRuntime "org.liquibase:liquibase-groovy-dsl:3.0.2"

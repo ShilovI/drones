@@ -4,7 +4,9 @@ import com.shilovi.drones.model.DroneDto;
 
 public interface DronesAccessService {
 
-    void save();
+    DroneDto save(DroneDto dto);
 
     DroneDto findBySerialNumber(String serialNumber);
+
+    boolean doesDroneExists(String serialNumber);
 }

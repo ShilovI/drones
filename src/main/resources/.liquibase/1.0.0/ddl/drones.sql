@@ -1,18 +1,11 @@
 --liquibase formatted sql
 
---changeset ShilovI:1.0.0/ddl/drones_seq
---rollback drop sequence drones.drones_seq;
---preconditions onFail:MARK_RAN
---precondition-sql-check expectedResult:0 SELECT count(*) FROM information_schema.tables where table_schema = 'drones' and table_name = 'drones';
-create sequence drones.drones_seq;
-
 --changeset ShilovI:1.0.0/ddl/drones
 --rollback drop table drones.drones;
 --preconditions onFail:MARK_RAN
 --precondition-sql-check expectedResult:0 SELECT count(*) FROM information_schema.tables where table_schema = 'drones' and table_name = 'drones';
 create table drones.drones
 (
-    id                      bigint   default nextval('drones.drones_seq'::regclass)     not null,
     serial_number           varchar(100)                                                not null,
     weight_limit            bigint                                                      not null
             constraint max_weight_limit
@@ -41,7 +34,7 @@ comment on column drones.drones.state is 'State';
 comment on column drones.drones.active is 'A soft deleted flag: true - active, false - deleted';
 
 create unique index drone_id_uindex
-    on drones.drones (id);
+    on drones.drones (serial_number);
 
 create unique index drone_state_index
     on drones.drones (state);

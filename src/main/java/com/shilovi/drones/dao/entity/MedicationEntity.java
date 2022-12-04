@@ -14,17 +14,18 @@ import java.time.LocalDateTime;
 @Table(
         name = "medication",
         indexes = {
-                @Index(name = "medication_id_uindex", columnList = "id", unique = true),
+                @Index(name = "medication_id_uindex", columnList = "code", unique = true),
                 @Index(name = "medication_id_uindex", columnList = "code", unique = true)
         }
 )
 public class MedicationEntity {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "medicationSeqGenerator")
-    @SequenceGenerator(name = "medicationSeqGenerator", sequenceName = "medication_seq", allocationSize = 1)
+    @Column(name = "code")
     @ToString.Include
-    private Long id;
+    @EqualsAndHashCode.Include
+    private String code;
 
     @Column(name = "name")
     @ToString.Include
@@ -33,11 +34,6 @@ public class MedicationEntity {
     @Column(name = "weight")
     @ToString.Include
     private Long weight;
-
-    @Column(name = "code")
-    @ToString.Include
-    @EqualsAndHashCode.Include
-    private String code;
 
     @Column(name = "image")
     private byte[] image;

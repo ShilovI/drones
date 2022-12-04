@@ -1,21 +1,14 @@
 --liquibase formatted sql
 
---changeset ShilovI:1.0.0/ddl/medication_seq
---rollback drop sequence drones.medication_seq;
---preconditions onFail:MARK_RAN
---precondition-sql-check expectedResult:0 SELECT count(*) FROM information_schema.tables where table_schema = 'drones' and table_name = 'medication';
-create sequence drones.medication_seq;
-
 --changeset ShilovI:1.0.0/ddl/medication
 --rollback drop table drones.medication;
 --preconditions onFail:MARK_RAN
 --precondition-sql-check expectedResult:0 SELECT count(*) FROM information_schema.tables where table_schema = 'drones' and table_name = 'medication';
 create table drones.medication
 (
-    id                  bigint default nextval('drones.medication_seq'::regclass) not null,
+    code                varchar(128)                                              not null,
     name                varchar(128)                                              not null,
     weight              bigint                                                    not null,
-    code                varchar(128)                                              not null,
     image               bytea                                                             ,
     created             timestamp(0) default now()                                not null,
     updated             timestamp(0) default now()                                not null,
@@ -32,7 +25,7 @@ comment on column drones.medication.active is 'A soft deleted flag: true - activ
 
 
 create unique index medication_id_uindex
-    on drones.medication (id);
+    on drones.medication (code);
 
 create unique index medication_code_uindex
     on drones.medication (code);

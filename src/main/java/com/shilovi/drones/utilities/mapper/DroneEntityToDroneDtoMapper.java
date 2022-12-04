@@ -11,8 +11,8 @@ public class DroneEntityToDroneDtoMapper {
         return DroneDto.builder()
                 .serialNumber(source.getSerialNumber())
                 .weightLimit(source.getWeightLimit())
-                .model(source.getModel())
-                .state(source.getState())
+                .model(source.getModel().getModel())
+                .state(source.getState().getState())
                 .build();
     }
 

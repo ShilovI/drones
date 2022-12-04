@@ -4,6 +4,7 @@ import com.shilovi.drones.dao.access.DronesAccessService;
 import com.shilovi.drones.dao.repository.DronesRepository;
 import com.shilovi.drones.exception.NotFoundException;
 import com.shilovi.drones.model.DroneDto;
+import com.shilovi.drones.utilities.mapper.DroneDtoToDroneEntityMapper;
 import com.shilovi.drones.utilities.mapper.DroneEntityToDroneDtoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class DronesAccessServiceImpl implements DronesAccessService {
     }
 
     @Override
-    public void save() {
-        throw new UnsupportedOperationException("Implement me!");
+    public DroneDto save(DroneDto dto) {
+        return DroneEntityToDroneDtoMapper.map(repository.save(DroneDtoToDroneEntityMapper.map(dto)));
     }
 
     @Override
@@ -34,4 +35,10 @@ public class DronesAccessServiceImpl implements DronesAccessService {
                 .orElseThrow(() -> new NotFoundException("Drone wasn't found by serial number : %s"
                         .formatted(serialNumber)));
     }
+
+    @Override
+    public boolean doesDroneExists(String serialNumber) {
+        return repository.doesExist(serialNumber);
+    }
+
 }
