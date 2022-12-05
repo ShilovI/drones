@@ -43,7 +43,7 @@ public class DroneEntity {
     private DroneState state;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.PERSIST,
             mappedBy = "drone",
             orphanRemoval = true
     )
